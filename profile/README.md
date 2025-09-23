@@ -1,6 +1,7 @@
-# Free TV · [freetv.today](https://freetv.today)
+# Free TV Today · [freetv.today](https://freetv.today)
 
-Welcome to the Free TV organization!  
+Welcome to Free TV Today!  
+
 This is a solo developer project created and maintained by [kendawson-online](https://github.com/kendawson-online), with the goal of making streaming classic TV shows and movies simple, accessible, and enjoyable for everyone.
 
 ---
@@ -37,7 +38,7 @@ The Internet Archive contains petabytes of public domain and classic media, but 
 
 ## 🚧 Current Status
 
-- **App Version:** `2.1.0-beta`
+- **App Version:** `2.1.1-beta`
 - **Development Phase:** Early beta, work in progress.
 - **Public Release:**  
   The main server and code will be made open source after reaching a stable 1.0.0 release, with full documentation and bug fixes.
