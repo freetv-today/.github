@@ -25,9 +25,9 @@ The Internet Archive contains petabytes of public domain and classic media, but 
 
 ## 🖥️ Projects
 
-- **[freetv-server](https://github.com/freetv-today/freetv-server):**  
-  Main Preact + PHP server powering [freetv.today](https://freetv.today)
-  [Server Documentation](https://github.com/freetv-today/freetv-server/wiki)
+- **[freetv-server](https://github.com/freetv-today/freetv-server):**  the main Preact + PHP server powering [freetv.today](https://freetv.today)
+  
+  ➡️ [Server Documentation](https://github.com/freetv-today/freetv-server/wiki)
 
 - **[freetv-legacy](https://github.com/freetv-today/freetv-legacy):**  
   Archived original vanilla JS/HTML/CSS app. (Deprecated)
