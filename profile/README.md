@@ -27,25 +27,31 @@ You do not need to download or build every FreeTV repository. Choose the reposit
 | **Run the repositories together** | [`freetv-tooling`](https://github.com/freetv-today/freetv-tooling) | Provides the coordinated development environment and cross-repository commands. |
 | **Build a complete deployable FreeTV site** | [`freetv-tooling`](https://github.com/freetv-today/freetv-tooling) | Builds and verifies a production assembly. Tooling prepares the files but does not upload or deploy them automatically. |
 
----
+## How the Repositories Work Together
 
-## 🖥️ Projects
+The four FreeTV repositories have separate responsibilities but share defined data and build contracts.
 
-- **[freetv-server](https://github.com/freetv-today/freetv-server):**  the main Preact + PHP server powering [freetv.today](https://freetv.today)
-  
-  ➡️ [Server Documentation](https://github.com/freetv-today/freetv-server/wiki)
+```mermaid
+flowchart TD
+    TOOLING["freetv-tooling"] -->|"Coordinates"| ADMIN["freetv-server"]
+    TOOLING -->|"Coordinates"| DATA["freetv-data"]
+    TOOLING -->|"Coordinates"| VIEWER["freetv-viewer"]
+    DATA -->|"Provides initial datasets"| ADMIN
+    ADMIN -->|"Publishes Viewer artifacts"| VIEWER
+```
 
-- **[freetv-legacy](https://github.com/freetv-today/freetv-legacy):**  
-  Archived original vanilla JS/HTML/CSS app. (Deprecated)
+* `freetv-server` provides the FreeTV Admin Dashboard, PHP API, MariaDB-backed management system, First Run process, and publication system.
+* `freetv-viewer` provides the end-user application that consumes published static artifacts.
+* `freetv-data` owns the official distributable datasets, Viewer artifacts, SQL packages, release packages, and integrity metadata.
+* `freetv-tooling` coordinates cross-repository development, validation, data workflows, builds, and production assembly.
 
-- **Viewer Clients (planned):**  
-  Standalone clients for various platforms (PWA, Android, iOS, Smart TV, etc.) will connect to the main server.
+MariaDB is authoritative for data managed through the Admin Dashboard. The Viewer does not connect directly to MariaDB; it consumes the static JSON and thumbnail artifacts established during First Run and maintained through the publication workflow.
 
----
+Tooling can assemble the Viewer, Admin Dashboard, PHP runtime, and published data into a verified production build. It does not automatically upload or deploy that build.
 
 ## 🚧 Current Status
 
-- **App Version:** `2.1.1-beta`
+- **App Version:** `3.1.1-beta`
 - **Development Phase:** Early beta, work in progress.
 - **Public Release:**  
   The main server and code will be made open source after reaching a stable 1.0.0 release, with full documentation and bug fixes.
