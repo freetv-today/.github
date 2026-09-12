@@ -1,17 +1,18 @@
-# Free TV Today · [freetv.today](https://freetv.today)
+# FreeTV · [freetv.today](https://freetv.today)
 
-Welcome to Free TV Today!  
+FreeTV is an open-source platform for curating, publishing, browsing, and watching hand-picked television shows and movies from the [Internet Archive](https://archive.org/).
 
-This is a solo developer project created and maintained by [kendawson-online](https://github.com/kendawson-online), with the goal of making streaming classic TV shows and movies simple, accessible, and enjoyable for everyone.
+The project provides an easy-to-use Viewer for watching content and a graphical Admin Dashboard for organizing shows, playlists, thumbnails, and Viewer settings. MariaDB stores the authoritative Admin data, which is published as static artifacts for the Viewer.
 
----
+FreeTV is developed and maintained by [Ken Dawson](https://github.com/kendawson-online).
 
-## 🌟 About Free TV
+## About FreeTV
 
-Free TV is an open project that provides a modern, open-source platform for browsing and watching hand-picked TV shows and movies, all hosted by the [Internet Archive](https://archive.org/).
+The Internet Archive contains an enormous collection of public-domain and classic media, but finding and organizing that content can be difficult. FreeTV provides curated playlists and a straightforward interface for discovering and watching selected content.
 
-> **Powered by the Internet Archive**  
-> Free TV does _not_ offer “live TV” or IPTV. Instead, it curates and organizes pre-existing content already served and hosted by the Internet Archive.
+FreeTV does not provide live television or IPTV services. Video content is hosted and served by the Internet Archive.
+
+FreeTV version 3 separated the project into focused repositories for the Admin Dashboard, Viewer, distributable data, and cross-repository Tooling. Each repository can be worked with independently where appropriate, while Tooling supports workflows that combine them into a complete FreeTV site.
 
 ### Why Free TV?
 
