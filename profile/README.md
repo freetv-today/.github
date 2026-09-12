@@ -1,6 +1,6 @@
 # FreeTV
 
-FreeTV is an open-source platform for curating, publishing, browsing, and watching hand-picked television shows and movies from the [Internet Archive](https://archive.org/). The project provides an easy-to-use web-based Viewer for watching content and a graphical Admin Dashboard for organizing and publishing it.
+FreeTV is an open-source platform for curating, publishing, browsing, and watching hand-picked television shows and movies from the [Internet Archive](https://archive.org/). The project provides a web-based Viewer for watching and a graphical Admin Dashboard for organizing and publishing.
 
 ### Live site: [https://freetv.today](https://freetv.today)
 
