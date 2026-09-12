@@ -4,7 +4,7 @@ FreeTV is an open-source platform for curating, publishing, browsing, and watchi
 
 The project provides an easy-to-use Viewer for watching content and a graphical Admin Dashboard for organizing shows, playlists, thumbnails, and Viewer settings. MariaDB stores the authoritative Admin data, which is published as static artifacts for the Viewer.
 
-### Check out the live site at: [freetv.today](https://freetv.today)
+### Live site: [https://freetv.today](https://freetv.today)
 
 ## About FreeTV
 
