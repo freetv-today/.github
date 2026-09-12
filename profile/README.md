@@ -14,13 +14,18 @@ FreeTV does not provide live television or IPTV services. Video content is hoste
 
 FreeTV version 3 separated the project into focused repositories for the Admin Dashboard, Viewer, distributable data, and cross-repository Tooling. Each repository can be worked with independently where appropriate, while Tooling supports workflows that combine them into a complete FreeTV site.
 
-### Why Free TV?
+## Which Repository Do I Need?
 
-The Internet Archive contains petabytes of public domain and classic media, but sorting through it all can be daunting. Free TV solves this by:
+You do not need to download or build every FreeTV repository. Choose the repository that owns the part of the project you want to use or modify.
 
-- Curating playlists of shows and movies, sorted by category.
-- Providing a simple, clean interface to jump straight to the good stuff.
-- Helping users discover and enjoy great content from the Internet Archive without digging through thousands of titles.
+| I want to... | Start here | Why? |
+| --- | --- | --- |
+| **Watch FreeTV** | Visit [freetv.today](https://freetv.today). | The hosted FreeTV Viewer runs directly in a modern web browser. |
+| **Run or modify the Admin Dashboard** | [`freetv-server`](https://github.com/freetv-today/freetv-server) | Contains the Admin frontend, PHP API, MariaDB integration, First Run process, and publication system. |
+| **Run or modify the Viewer** | [`freetv-viewer`](https://github.com/freetv-today/freetv-viewer) | Contains the end-user application that reads published FreeTV data. |
+| **Inspect or distribute FreeTV datasets** | [`freetv-data`](https://github.com/freetv-today/freetv-data) | Contains official distributable datasets, Viewer artifacts, thumbnails, SQL packages, and release metadata. |
+| **Run the repositories together** | [`freetv-tooling`](https://github.com/freetv-today/freetv-tooling) | Provides the coordinated development environment and cross-repository commands. |
+| **Build a complete deployable FreeTV site** | [`freetv-tooling`](https://github.com/freetv-today/freetv-tooling) | Builds and verifies a production assembly. Tooling prepares the files but does not upload or deploy them automatically. |
 
 ---
 
