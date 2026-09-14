@@ -47,6 +47,19 @@ MariaDB is authoritative for data managed through the Admin Dashboard. The Viewe
 
 Tooling can assemble the Viewer, Admin Dashboard, PHP runtime, and published data into a verified production build. It does not automatically upload or deploy that build.
 
+## Key Workflows
+
+FreeTV uses several related workflows with different purposes and ownership:
+
+| Workflow | Purpose | Primary interface or command |
+| --- | --- | --- |
+| **Viewer publication workflow** | Export current MariaDB content as Viewer-compatible static JSON artifacts. | Admin Dashboard **Publish** page |
+| **Dataset publication workflow** | Validate current Admin data and a reconciled Data Snapshot, then publish freshly generated canonical artifacts to the local `freetv-data` repository. | `npm run data:publish -- --snapshot=<PATH>` |
+| **Dataset release packaging workflow** | Build the Current Sample Data and Current Official Data ZIP packages consumed by First Run. | `npm run release:build` |
+| **Production assembly workflow** | Combine the Viewer, Admin Dashboard, PHP runtime, current Viewer data, and thumbnails into a verified deployable site. | `npm run build:all` |
+
+Most administrators only need the Viewer publication workflow. Dataset publication and release packaging are advanced workflows for maintainers or operators who distribute canonical FreeTV datasets. See the [`freetv-tooling` documentation](https://github.com/freetv-today/freetv-tooling) for production assembly and advanced dataset workflows.
+
 <br/>
 
 ---
