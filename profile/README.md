@@ -58,7 +58,9 @@ FreeTV uses several related workflows with different purposes and ownership:
 | **Dataset release packaging workflow** | Build the Current Sample Data and Current Official Data ZIP packages consumed by First Run. | `npm run release:build` |
 | **Production assembly workflow** | Combine the Viewer, Admin Dashboard, PHP runtime, current Viewer data, and thumbnails into a verified deployable site. | `npm run build:all` |
 
-Most administrators only need the Viewer publication workflow. Dataset publication and release packaging are advanced workflows for maintainers or operators who distribute canonical FreeTV datasets. See the [`freetv-tooling` documentation](https://github.com/freetv-today/freetv-tooling) for production assembly and advanced dataset workflows.
+Most administrators only need the **Viewer publication workflow**. 
+
+Dataset publication and release packaging are advanced workflows for maintainers or operators who distribute canonical FreeTV datasets. See the [`freetv-tooling` documentation](https://github.com/freetv-today/freetv-tooling) for production assembly and advanced dataset workflows.
 
 <br/>
 
