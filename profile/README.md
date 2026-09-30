@@ -10,7 +10,7 @@ The Internet Archive contains an enormous collection of public-domain and classi
 
 FreeTV does not provide live television or IPTV services. Video content is hosted and served by the Internet Archive.
 
-FreeTV version 3 separated the project into focused repositories for the Admin Dashboard, Viewer, distributable data, and cross-repository Tooling. Each repository can be worked with independently where appropriate, while Tooling supports workflows that combine them into a complete FreeTV site.
+FreeTV is organized into focused repositories for the Admin Dashboard, Viewer, distributable data, and cross-repository Tooling. Each repository can be worked with independently where appropriate, while Tooling supports workflows that combine them into a complete FreeTV site. 
 
 ## Which Repository Do I Need?
 
