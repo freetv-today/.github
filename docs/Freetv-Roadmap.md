@@ -2,7 +2,7 @@
 
 This roadmap describes the planned development direction for FreeTV.  It identifies broad priorities and sequencing rather than promising release dates.
 
-Detailed feature ideas remain in `WISHLIST.md`.  Project-specific behavior may be explored in separate mini-specs.  Before implementation, every roadmap area must be reviewed against the current production architecture and divided into bounded development work.
+Detailed feature ideas remain in `Wishlist.md`.  Project-specific behavior may be explored in separate mini-specs.  Before implementation, every roadmap area must be reviewed against the current production architecture and divided into bounded development work.
 
 ---
 
@@ -49,15 +49,25 @@ Complete the remaining operational responsibilities created or exposed by the v3
 
 ### Production Baseline and Identification
 
-- Confirm and document the stable production baseline and recovery materials.
-- Add subtle application build/version indicators to the Viewer and Admin Dashboard.
-- Keep application build identity separate from dataset snapshot identity.
+The initial baseline and application-version visibility work is complete enough for current operational needs.  Viewer and Admin display application versions sourced from their respective `package.json` files, answering the immediate question of which app version is running.
+
+- Maintain the established production baseline and recovery materials.
+- Revisit build-specific identifiers (for example, publishing-log build identities independent of app version bumps) only when a concrete operational need arises.
+- Continue to distinguish application versions, build identities, and dataset snapshot identities when introducing future diagnostics.
 
 ---
 
 ## Developer Foundation
 
-Strengthen the development and testing environment before undertaking large new subsystems.
+Strengthen the development and testing environment incrementally, alongside bounded operational improvements and before undertaking large new subsystems.
+
+### Guided FreeTV Tooling CLI
+
+- Implement a guided Node CLI as an interface to existing `freetv-tooling` commands and shared libraries; do not duplicate the underlying workflows.
+- Start with a small, verifiable diagnostics or other read-only slice, then add guided build, publication, and preparation workflows as contracts stabilize.
+- Support accurate preflight checks, readable status/errors, structured JSON output, stable exit codes, secret redaction, and explicit approval for mutations.
+- Keep deployment disabled by default.  The first version should prepare, verify, compare, and report release artifacts rather than deploying them automatically.
+- Preserve the direct npm commands for development, automation, and CI.  See `FreeTV Tooling CLI Mini Spec.md` for the design input.
 
 ### Repeatable Development State
 
@@ -128,13 +138,15 @@ Improve established workflows before expanding the system's responsibilities.
 
 Develop content removal, health, recovery, and intake as related but deliberately separated systems.
 
-### Phase 1: Safe Removal and Archival
+### Phase 1: Content Stasis and Safe Removal
 
-- Replace destructive playlist-show deletion with transactional archive-first behavior.
-- Preserve useful snapshot metadata, deletion reason, administrator attribution, and timestamps.
-- Keep disabled, quarantined, archived/deleted, and retired concepts distinct.
-- Do not move or delete shared thumbnails as an automatic side effect of deleting one playlist membership.
-- Keep Admin deletion separate from publication and publication Undo.
+- Resolve the current destructive-delete behavior by designing a suspension/content-stasis workflow that preserves removed playlist-show metadata and original ordering for historical reference.
+- Remove the active playlist membership and renumber the remaining shows to contiguous, zero-based `sort_order` values in the same database transaction, preserving their relative display order.  Test rollback if any part fails.
+- Record an explicit reason, timestamps, and administrator attribution where the audit/identity contract supports it.
+- Distinguish Disabled, Quarantined, Suspended/Archived, and Retired in the domain model before finalizing storage or UI semantics.
+- Returning removed content should enter the Incoming Hopper for review rather than restoring an old live row directly; detailed lifecycle contracts remain to be finalized.
+- Do not automatically move or delete shared thumbnails.  Keep Admin state changes separate from publication and publication Undo.
+- See `FreeTV Content Lifecycle Mini Spec.md` and the production ordering-integrity incident documented in `Wishlist.md`.
 
 ### Phase 2: Content Health and Quarantine
 
@@ -163,9 +175,10 @@ Develop content removal, health, recovery, and intake as related but deliberatel
 
 ## Viewer and Playback
 
-- Integrate the custom FreeTV player.
-- Replace Internet Archive iframe playback where the custom player provides a better supported path.
+Viewer v4 introduced a custom FreeTV player, so its original integration is no longer a forward-looking roadmap milestone.  Verify the current released behavior and retain only concrete follow-up improvements.
+
 - Improve playback-error detection and reporting.
+- Refine direct-file playback and remaining iframe fallbacks where actual unsupported cases justify changes.
 - Audit Viewer utilities inherited from retired systems and remove only code proven unused.
 - Explore offline downloads, native clients, and removable-storage libraries as separate future projects.
 
@@ -225,13 +238,14 @@ MariaDB remains authoritative for content management.  Published JSON remains th
 
 The current intended order is:
 
-1. Production hardening and operational cleanup
-2. Developer environment and automated-test foundation
+1. Remaining production hardening and operational cleanup
+2. Guided FreeTV Tooling CLI, with incremental automated testing and reproducible development-state work alongside it
 3. Improvements to existing Admin/content workflows
-4. Safe removal, archival, and quarantine foundations
-5. Incoming Hopper and editorial review system
-6. Browser-extension submission integration
-7. Viewer, playback, publishing-platform, and distribution projects as separately planned milestones
+4. Transactional content stasis and safe removal, including playlist-order integrity
+5. Content health checking, human-reviewed quarantine, and recovery design
+6. Incoming Hopper and editorial review system
+7. Browser-extension submission integration
+8. Remaining Viewer, playback, publishing-platform, and distribution projects as separately planned milestones
 
 This ordering is directional rather than a release commitment.  Smaller independent improvements may be completed between larger milestones when they do not destabilize the current foundation or create unplanned operational responsibilities.
 
