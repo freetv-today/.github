@@ -20,6 +20,20 @@ Future work should follow these principles:
 
 ---
 
+## Current Focus
+
+- Active: Production hardening and operational cleanup
+- Next: FreeTV Tooling CLI
+- Alongside: Incremental automated testing
+
+## Recently Completed
+
+- FreeTV Server → Admin repository rename
+- Viewer and Admin application version indicators
+- Roadmap reconciliation
+
+---
+
 ## Active Priority: Production Hardening and Operational Cleanup
 
 Complete the remaining operational responsibilities created or exposed by the v3 refactor before beginning major forward-looking features.
