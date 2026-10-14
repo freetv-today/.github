@@ -19,7 +19,7 @@ You do not need to download or build every FreeTV repository. Choose the reposit
 | I want to... | Start here | Why? |
 | --- | --- | --- |
 | **Watch FreeTV** | Visit [freetv.today](https://freetv.today). | The hosted FreeTV Viewer runs directly in a modern web browser. |
-| **Run or modify the Admin Dashboard** | [`freetv-server`](https://github.com/freetv-today/freetv-server) | Contains the Admin frontend, PHP API, MariaDB integration, First Run process, and publication system. |
+| **Run or modify the Admin Dashboard** | [`freetv-admin`](https://github.com/freetv-today/freetv-admin) | Contains the Admin frontend, PHP API, MariaDB integration, First Run process, and publication system. |
 | **Run or modify the Viewer** | [`freetv-viewer`](https://github.com/freetv-today/freetv-viewer) | Contains the end-user application that reads published FreeTV data. |
 | **Inspect or distribute FreeTV datasets** | [`freetv-data`](https://github.com/freetv-today/freetv-data) | Contains official distributable datasets, Viewer artifacts, thumbnails, SQL packages, and release metadata. |
 | **Run the repositories together** | [`freetv-tooling`](https://github.com/freetv-today/freetv-tooling) | Provides the coordinated development environment and cross-repository commands. |
@@ -31,14 +31,14 @@ The four FreeTV repositories have separate responsibilities but share defined da
 
 ```mermaid
 flowchart TD
-    TOOLING["freetv-tooling"] -->|"Coordinates"| ADMIN["freetv-server"]
+    TOOLING["freetv-tooling"] -->|"Coordinates"| ADMIN["freetv-admin"]
     TOOLING -->|"Coordinates"| DATA["freetv-data"]
     TOOLING -->|"Coordinates"| VIEWER["freetv-viewer"]
     DATA -->|"Provides initial datasets"| ADMIN
     ADMIN -->|"Publishes Viewer artifacts"| VIEWER
 ```
 
-* `freetv-server` provides the FreeTV Admin Dashboard, PHP API, MariaDB-backed management system, First Run process, and publication system.
+* `freetv-admin` provides the FreeTV Admin Dashboard, PHP API, MariaDB-backed management system, First Run process, and publication system.
 * `freetv-viewer` provides the end-user application that consumes published static artifacts.
 * `freetv-data` owns the official distributable datasets, Viewer artifacts, SQL packages, release packages, and integrity metadata.
 * `freetv-tooling` coordinates cross-repository development, validation, data workflows, builds, and production assembly.
